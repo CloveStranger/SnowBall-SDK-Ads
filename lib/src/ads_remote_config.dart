@@ -31,9 +31,9 @@ class AdsRemoteConfig {
 
   Map<String, int> adsShowIntervalByScene = <String, int>{};
 
-  ValueNotifier<bool> appShouldShowUMP = ValueNotifier<bool>(false);
-  ValueNotifier<bool> shouldWidgetAdsShow = ValueNotifier<bool>(false);
-  ValueNotifier<bool> showCloseIcon = ValueNotifier<bool>(false);
+  final ValueNotifier<bool> appShouldShowUMP = ValueNotifier<bool>(false);
+  final ValueNotifier<bool> shouldWidgetAdsShow = ValueNotifier<bool>(false);
+  final ValueNotifier<bool> showCloseIcon = ValueNotifier<bool>(false);
 
   void _handleAdsShowCloseIcon() {
     setShowCloseIcon(_firebaseRemoteConfig.getBool(_adsShowCloseIcon));

@@ -293,11 +293,13 @@ class AdsLib extends ChangeNotifier {
   void setShouldLoadAd(bool value) {
     AdsConfigStore().shouldLoadAds = value;
   }
-
+ 
   ///[showDebugger] 展示AD调试页面
   void showDebugger() {
     adsUtilsCommon?.showAdsDebugPage();
   }
+
+  bool get shouldShowUMP => _adsRemoteConfig.appShouldShowUMP.value;
 
   void resetUmp() => UseUmp().resetUmp();
 
