@@ -1,7 +1,8 @@
 import 'package:flutter/foundation.dart';
 
-import '../snowball_sdk_ads.dart';
 import 'ads_class.dart';
+import 'ads_enums.dart';
+import 'ads_model.dart';
 
 ///各类型广告基本接口
 abstract class AdsCommon {

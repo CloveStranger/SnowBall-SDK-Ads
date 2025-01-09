@@ -1,8 +1,12 @@
 import 'dart:async';
 
-import 'package:flutter_th_common_ads/flutter_th_common_ads.dart';
-import 'package:flutter_th_common_ads/src/ads_config_store.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+
+import '../../../ads_abstract_class.dart';
+import '../../../ads_class.dart';
+import '../../../ads_config_store.dart';
+import '../../../ads_enums.dart';
+import '../../../ads_model.dart';
 
 class AdsAdmobInterstitial extends AdsCommon {
   late String _adUnitId = '';

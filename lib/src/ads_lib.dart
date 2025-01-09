@@ -8,6 +8,7 @@ import 'ads_config_store.dart';
 import 'ads_enums.dart';
 import 'ads_remote_config.dart';
 import 'ads_scene.dart';
+import 'ads_type_def.dart';
 import 'mediation_ads/ads_admob/ads_admob.dart';
 import 'mediation_ads/ads_applovin/ads_applovin.dart';
 import 'ump/use_ump.dart';
@@ -39,9 +40,9 @@ class AdsLib extends ChangeNotifier {
   Map<String, int> get _adsShowIntervalByScene =>
       _adsRemoteConfig.adsShowIntervalByScene;
 
-  bool get shouldWidgetAdsShow => _adsRemoteConfig.shouldWidgetAdsShow;
+  bool get shouldWidgetAdsShow => _adsRemoteConfig.shouldWidgetAdsShow.value;
 
-  bool get showCloseIcon => _adsRemoteConfig.showCloseIcon;
+  bool get showCloseIcon => _adsRemoteConfig.showCloseIcon.value;
 
   AdsUtilsCommon? adsUtilsCommon;
 
@@ -59,7 +60,7 @@ class AdsLib extends ChangeNotifier {
 
   bool _hasAdsInit = false;
 
-  get hasAdsInit => _hasAdsInit;
+  bool get hasAdsInit => _hasAdsInit;
 
   Future<void> init(
     MediationType mediaType,
@@ -84,7 +85,7 @@ class AdsLib extends ChangeNotifier {
         await _adsRemoteConfig.init(remoteConfig: firebaseRemoteConfig);
         notifyListeners();
       }
-      startLoad(forceLoad: !_adsRemoteConfig.appShouldShowUMP);
+      startLoad(forceLoad: !_adsRemoteConfig.appShouldShowUMP.value);
     }
   }
 
@@ -118,7 +119,7 @@ class AdsLib extends ChangeNotifier {
         (_adsShowInterval[adType] ?? defaultTime);
   }
 
-  late final Map<AdType, Function> _adsIntervalShowJudge = {
+  late final Map<AdType, AdsIntervalJudge> _adsIntervalShowJudge = {
     AdType.appOpen: (String scene) => _intervalShowJudge(
           _appOpenLastShowTime,
           AdType.appOpen,

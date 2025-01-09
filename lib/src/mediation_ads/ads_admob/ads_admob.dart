@@ -1,9 +1,12 @@
-import 'package:flutter_th_common_ads/flutter_th_common_ads.dart';
-import 'package:flutter_th_common_ads/src/ads_config_store.dart';
-import 'package:flutter_th_common_ads/src/mediation_ads/ads_admob/app_open/ads_admob_app_open.dart';
-import 'package:flutter_th_common_ads/src/mediation_ads/ads_admob/interstitial/ads_admob_interstitial.dart';
-import 'package:flutter_th_common_ads/src/mediation_ads/ads_admob/reward/ads_admob_reward.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+
+import '../../ads_abstract_class.dart';
+import '../../ads_class.dart';
+import '../../ads_config_store.dart';
+import '../../ads_enums.dart';
+import 'app_open/ads_admob_app_open.dart';
+import 'interstitial/ads_admob_interstitial.dart';
+import 'reward/ads_admob_reward.dart';
 
 class AdsAdmob extends AdsUtilsCommon {
   static AdsAdmob? _instance;

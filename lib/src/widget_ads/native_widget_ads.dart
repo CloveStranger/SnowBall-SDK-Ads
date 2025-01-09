@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_th_common_ads/flutter_th_common_ads.dart';
-import 'package:flutter_th_common_ads/src/ads_config_store.dart';
-import 'package:flutter_th_common_ads/src/mediation_ads/ads_admob/native/admob_native_widget.dart';
-import 'package:flutter_th_common_ads/src/mediation_ads/ads_applovin/native/applovin_native_widget.dart';
+
+import '../ads_config_store.dart';
+import '../ads_enums.dart';
+import '../ads_lib.dart';
+import '../mediation_ads/ads_admob/native/admob_native_widget.dart';
+import '../mediation_ads/ads_applovin/native/applovin_native_widget.dart';
 
 class NativeWidgetAds extends StatelessWidget {
   const NativeWidgetAds({

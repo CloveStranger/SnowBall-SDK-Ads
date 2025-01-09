@@ -31,7 +31,7 @@ class UseUmp {
   void Function()? umpLoadSuccessCall;
 
   void _basicPrint(dynamic msg) {
-    debugPrint('======> UMP ${msg.toString()}');
+    // debugPrint('======> UMP ${msg.toString()}');
   }
 
   Future<void> _successListener() async {

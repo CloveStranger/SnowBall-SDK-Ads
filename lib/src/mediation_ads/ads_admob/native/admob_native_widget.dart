@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_th_common_ads/flutter_th_common_ads.dart';
-import 'package:flutter_th_common_ads/src/ads_config_store.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+
+import '../../../ads_class.dart';
+import '../../../ads_config_store.dart';
+import '../../../ads_enums.dart';
+import '../../../ads_lib.dart';
+import '../../../ads_model.dart';
+import '../../../ads_scene.dart';
 
 class AdmobNativeWidget extends StatefulWidget {
   const AdmobNativeWidget({
@@ -29,7 +34,7 @@ class _AdmobNativeWidgetState extends State<AdmobNativeWidget>
   }
 
   late final AnimationController animationController;
-  late final Animation animation;
+  late final Animation<double> animation;
 
   void _loadAd() {
     _nativeAd = NativeAd(

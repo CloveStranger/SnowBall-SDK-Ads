@@ -1,7 +1,9 @@
-import 'package:flutter_th_common_ads/flutter_th_common_ads.dart';
+import 'ads_class.dart';
 
 class AdsConfigStore {
-  static AdsConfigStore? _instance;
+  factory AdsConfigStore() {
+    return AdsConfigStore._makeInstance();
+  }
 
   AdsConfigStore._();
 
@@ -10,9 +12,7 @@ class AdsConfigStore {
     return _instance!;
   }
 
-  factory AdsConfigStore() {
-    return AdsConfigStore._makeInstance();
-  }
+  static AdsConfigStore? _instance;
 
   AdsConfigStore get instance => AdsConfigStore._makeInstance();
 

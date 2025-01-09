@@ -1,11 +1,14 @@
 import 'package:applovin_max/applovin_max.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_th_common_ads/flutter_th_common_ads.dart';
-import 'package:flutter_th_common_ads/src/ads_config_store.dart';
-import 'package:flutter_th_common_ads/src/mediation_ads/ads_applovin/app_open/applovin_app_open.dart';
-import 'package:flutter_th_common_ads/src/mediation_ads/ads_applovin/banner/applovin_banner.dart';
-import 'package:flutter_th_common_ads/src/mediation_ads/ads_applovin/interstitial/applovin_interstitial.dart';
-import 'package:flutter_th_common_ads/src/mediation_ads/ads_applovin/reward/applovin_reward.dart';
+
+import '../../ads_abstract_class.dart';
+import '../../ads_class.dart';
+import '../../ads_config_store.dart';
+import '../../ads_enums.dart';
+import 'app_open/applovin_app_open.dart';
+import 'banner/applovin_banner.dart';
+import 'interstitial/applovin_interstitial.dart';
+import 'reward/applovin_reward.dart';
 
 class AdsApplovin extends AdsUtilsCommon {
   static AdsApplovin? _instance;

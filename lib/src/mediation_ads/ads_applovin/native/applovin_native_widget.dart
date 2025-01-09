@@ -1,7 +1,12 @@
 import 'package:applovin_max/applovin_max.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_th_common_ads/flutter_th_common_ads.dart';
-import 'package:flutter_th_common_ads/src/ads_config_store.dart';
+
+import '../../../ads_class.dart';
+import '../../../ads_config_store.dart';
+import '../../../ads_enums.dart';
+import '../../../ads_lib.dart';
+import '../../../ads_model.dart';
+import '../../../ads_scene.dart';
 
 class AdsApplovinNativeWidget extends StatefulWidget {
   const AdsApplovinNativeWidget({
@@ -30,7 +35,7 @@ class _AdsApplovinNativeWidgetState extends State<AdsApplovinNativeWidget>
   }
 
   late final AnimationController animationController;
-  late final Animation animation;
+  late final Animation<double> animation;
 
   final MaxNativeAdViewController _nativeAdViewController =
       MaxNativeAdViewController();

@@ -1,7 +1,8 @@
 import 'package:applovin_max/applovin_max.dart';
-import 'package:flutter_th_common_ads/flutter_th_common_ads.dart';
 
+import '../../../ads_abstract_class.dart';
 import '../../../ads_config_store.dart';
+import '../../../ads_enums.dart';
 
 class ApplovinBanner extends AdsCommon {
   late String _adUnitId = '';
