@@ -4,7 +4,6 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:uuid/uuid.dart';
 
 import '../snowball_sdk_ads.dart';
-import 'ads_constants.dart';
 
 class AdsPaidInfo {
   AdsPaidInfo({

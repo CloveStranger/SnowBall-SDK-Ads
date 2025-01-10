@@ -74,10 +74,8 @@ class AdsLib extends ChangeNotifier {
       case MediationType.max:
         assert(sdkKey != null, 'Max sdkKey is must');
         adsUtilsCommon = AdsApplovin();
-        break;
       case MediationType.admob:
         adsUtilsCommon = AdsAdmob();
-        break;
     }
     if (adsUtilsCommon != null) {
       await adsUtilsCommon!.init(adsConfig, sdkKey);
@@ -85,18 +83,24 @@ class AdsLib extends ChangeNotifier {
         await _adsRemoteConfig.init(remoteConfig: firebaseRemoteConfig);
         notifyListeners();
       }
-      startLoad(forceLoad: !_adsRemoteConfig.appShouldShowUMP.value);
+      startLoad();
     }
   }
 
-  Future<void> startLoad({bool forceLoad = false}) async {
+  Future<void> startLoad() async {
     if (_hasAdsInit) {
       return;
     }
-
-    final canRequestAds = await ConsentInformation.instance.canRequestAds();
-
-    if (canRequestAds || forceLoad) {
+    final PrivacyOptionsRequirementStatus status =
+        await ConsentInformation.instance.getPrivacyOptionsRequirementStatus();
+    final bool canRequestAds =
+        await ConsentInformation.instance.canRequestAds();
+    if (status != PrivacyOptionsRequirementStatus.required) {
+      _hasAdsInit = true;
+      adsUtilsCommon!.activeAds();
+      return;
+    }
+    if (canRequestAds) {
       _hasAdsInit = true;
       adsUtilsCommon!.activeAds();
     }
@@ -293,7 +297,7 @@ class AdsLib extends ChangeNotifier {
   void setShouldLoadAd(bool value) {
     AdsConfigStore().shouldLoadAds = value;
   }
- 
+
   ///[showDebugger] 展示AD调试页面
   void showDebugger() {
     adsUtilsCommon?.showAdsDebugPage();

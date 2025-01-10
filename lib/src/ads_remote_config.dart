@@ -32,8 +32,19 @@ class AdsRemoteConfig {
   Map<String, int> adsShowIntervalByScene = <String, int>{};
 
   final ValueNotifier<bool> appShouldShowUMP = ValueNotifier<bool>(false);
-  final ValueNotifier<bool> shouldWidgetAdsShow = ValueNotifier<bool>(false);
+  final ValueNotifier<bool> shouldWidgetAdsShow = ValueNotifier<bool>(true);
   final ValueNotifier<bool> showCloseIcon = ValueNotifier<bool>(false);
+
+  Future<void> init({required FirebaseRemoteConfig remoteConfig}) async {
+    _firebaseRemoteConfig = remoteConfig;
+    await _firebaseRemoteConfig.ensureInitialized();
+    _handleAppShouldShowUMP();
+    _handleDisableAdTypes();
+    _handleAdsShowCloseIcon();
+    _handleAdsDisableScenes();
+    _handleAdsBaseInterval();
+    _handleAdsIntervalByScene();
+  }
 
   void _handleAdsShowCloseIcon() {
     setShowCloseIcon(_firebaseRemoteConfig.getBool(_adsShowCloseIcon));
@@ -83,17 +94,6 @@ class AdsRemoteConfig {
         ),
       );
     }
-  }
-
-  Future<void> init({required FirebaseRemoteConfig remoteConfig}) async {
-    _firebaseRemoteConfig = remoteConfig;
-    await _firebaseRemoteConfig.ensureInitialized();
-    _handleAppShouldShowUMP();
-    _handleDisableAdTypes();
-    _handleAdsShowCloseIcon();
-    _handleAdsDisableScenes();
-    _handleAdsBaseInterval();
-    _handleAdsIntervalByScene();
   }
 
   void setDisableAdType(List<AdType> value) {

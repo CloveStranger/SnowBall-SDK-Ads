@@ -1,3 +1,6 @@
+/// Snowball SDK Ads
+library;
+
 export 'src/ads_abstract_class.dart';
 export 'src/ads_class.dart';
 export 'src/ads_config_store.dart';
